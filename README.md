@@ -354,6 +354,18 @@ The biggest takeaway was understanding how every stage of the delivery pipelineâ
 
 ---
 
+# Author
+
+Charles Tendongho
+
+Database Engineer | Cloud Engineer | DevOps Engineer
+
+GitHub: https://github.com/ctendongho
+
+LinkedIn: https://www.linkedin.com/in/charles-tendongho-3500901a9/
+
+---
+
 # License
 
 This project is licensed under the MIT License.
