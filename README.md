@@ -356,9 +356,9 @@ The biggest takeaway was understanding how every stage of the delivery pipelineâ
 
 # Author
 
-Charles Tendongho
+**Charles Tendongho**
 
-Database Engineer | Cloud Engineer | DevOps Engineer
+Database Administrator | Database Developer | Database Engineer | Data Platform Engineer
 
 GitHub: https://github.com/ctendongho
 
