@@ -33,3 +33,11 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t inventory-tracker:ci ./app
+
+      - name: Install Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: inventory-tracker:ci
+          format: table
+          severity: HIGH,CRITICAL
+          exit-code: "0"
