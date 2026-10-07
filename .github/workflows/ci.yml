@@ -8,6 +8,10 @@ on:
     branches:
       - New-sample
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -32,12 +36,25 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t inventory-tracker:ci ./app
+          docker build \
+            -t ghcr.io/anandkumar9853/inventory-tracker:${{ github.sha }} \
+            ./app
 
-      - name: Install Trivy
+      - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: inventory-tracker:ci
+          image-ref: ghcr.io/anandkumar9853/inventory-tracker:${{ github.sha }}
           format: table
           severity: HIGH,CRITICAL
           exit-code: "0"
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker image to GHCR
+        run: |
+          docker push ghcr.io/anandkumar9853/inventory-tracker:${{ github.sha }}
