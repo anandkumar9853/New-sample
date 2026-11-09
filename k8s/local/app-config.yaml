@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inventory-app-config
+  namespace: inventory-local
+data:
+  DB_MODE: "local"
+  DB_HOST: "mysql"
+  DB_NAME: "inventorydb"
