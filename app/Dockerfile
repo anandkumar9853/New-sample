@@ -1,10 +1,11 @@
+
 FROM python:3.12-slim
 
 WORKDIR /app
 
-# Update OS packages and remove package cache
+# Apply available Debian security updates during the image build.
 RUN apt-get update \
-    && apt-get upgrade -y \
+    && apt-get upgrade -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
